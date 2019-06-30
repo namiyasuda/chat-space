@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+}
+
+.Side_bar{
+width: 300px;
+color: white;
+float: left;
+  &_top{
+  background-color: #253141;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  }
+  &_top_name{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-weight: bold;
+  }
+  &_top_icon{
+  display: flex;
+  i{
+    color: white; 
+    }
+  }
+  &_top_icon_new{
+    margin-left: 0.3rem;
+  }
+  &_top_icon_edit{
+    margin-left: 0.3rem;
+  }
+
+  &_main{
+  height: calc(100vh - 100px);
+  background-color: #2f3e51;
+  padding: 20px 20px 0;
+  overflow: scroll;
+  }
+
+  &_main_group{
+  margin-bottom: 40px;
+  }
+  &_main_group_name{
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+
+  &_main_group_text{
+    font-size: 11px;
+  }
+}
+
+
+
+.Chat{
+  width: calc(100vw - 300px);
+  float: left;
+
+  &_top{
+  height: 100px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px #eeeeee;
+  overflow: scroll;
+  }
+  &_top_group{
+    margin-top: 35px;
+  }
+  &_top_group_name{
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  &_top_group_member{
+    font-size: 11px;
+    color:#999999;
+  }
+  &_top_btn{
+    color:$color-skyblue;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    margin-top: 30px;
+    border: solid 1px$color-skyblue;
+    position: absolute;
+    right: 40px;
+  }
+  &_main{
+  height: calc(100vh - 190px);
+  padding: 46px 40px;
+  background-color: #fafafa;
+  overflow: scroll;
+  }
+  &_main_message{
+    display: flex;
+    margin-bottom: 10px;
+  }
+  &_main_message_name{
+    color: #434a54;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  &_main_message_date{
+    color: #999999;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  &_main_text{
+    color: #434a54;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  &_bottom{
+    height: 90px;
+    padding: 20px 40px;
+    background-color: #ddd;
+    &__body{
+      display: flex;
+      width: 900px;
+      background-color: white;
+      color:gray;
+      line-height: 50px;
+      position: relative;
+    }
+ 
+    &__image{
+        position: absolute;
+        top: 15px;
+        right: 10px;
+        font-size: 1.3rem;
+        color: #434a54;
+    }
+ 
+    .input_box_image{
+      display: flex;
+      input{
+        display: none;
+      }
+    }
+ 
+    .fa-picture-o{
+      cursor: pointer;
+    }
+    .file_serect{
+      display: none;
+    }
+ }
+ 
+  .Form__btn{
+    width: 100px;
+    height: 50px;
+    padding: 0 30px;
+    margin-left: 15px;
+    background-color:$color-skyblue;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    left: 800px;
+  }
+}
