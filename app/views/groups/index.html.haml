@@ -1,20 +1,5 @@
-.Side_bar
-  .Side_bar_top
-    .Side_bar_top_name
-      sample
-    .Side_bar_top_icon
-      .Side_bar_top_icon_new
-      =link_to "https://www.facebook.com/" do
-        = fa_icon 'edit'
-      .Side_bar_top_icon_edit
-      =link_to "https://www.facebook.com/" do
-        = fa_icon 'cog'
-  .Side_bar_main
-    .Side_bar_main_group
-      .Side_bar_main_group_name
-        sample
-      .Side_bar_main_group_text
-        hello!
+.wrapper
+= render 'shared/side_bar'
 .Chat
   .Chat_top
     .Chat_top_group
