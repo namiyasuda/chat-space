@@ -1,0 +1,24 @@
+.wrapper
+= render 'shared/side_bar'
+.Chat
+  .Chat_top
+    .Chat_top_group
+      .Chat_top_group_name
+        = @group.name
+      .Chat_top_group_member
+        Members:
+        - @group.group_users.each do |group_user|
+          = group_user.user.name
+    .Chat_top_btn
+      Edit
+  .Chat_main
+    = render @messages
+  .Chat_bottom
+    = form_for [@group, @message] do |f|
+      .input_box
+        = f.text_field :content, class: 'input_box__text', placeholder: 'type a message'
+        = f.label :image, class: 'input_box__image' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'Form__btn'
+      
