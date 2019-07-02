@@ -1,0 +1,55 @@
+.Side_bar{
+  width: 300px;
+  color: white;
+  float: left;
+    &_top{
+    background-color: #253141;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    }
+    &_top_name{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: bold;
+    }
+    &_top_icon{
+    display: flex;
+    i{
+      color: white; 
+      }
+    }
+    &_top_icon_new{
+      margin-left: 0.3rem;
+    }
+    &_top_icon_edit{
+      margin-left: 0.3rem;
+    }
+  
+    &_main{
+    height: calc(100vh - 100px);
+    background-color: #2f3e51;
+    padding: 20px 20px 0;
+    overflow: scroll;
+    }
+  
+    &_main_group{
+      a{
+        color:white;
+        text-decoration: none;
+      }
+      &_box{
+        margin-bottom: 40px;
+      }
+      &_name{
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+  
+      &_text{
+        font-size: 11px;
+      }
+    }
+  }
