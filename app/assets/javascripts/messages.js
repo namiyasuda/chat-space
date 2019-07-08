@@ -38,7 +38,7 @@ $(function(){
   .done(function(data){
     var html = buildHTML(data);
     $('.Chat_main').append(html)
-    $('.input_box__text').val('')
+    $('.new_message')[0].reset();
     $('.Form__btn').prop('disabled', false);
     $('.Chat_main').animate({ scrollTop: $('.Chat_main')[0].scrollHeight}, 'fast');
     // return false
