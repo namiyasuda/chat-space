@@ -9,8 +9,10 @@
         Members:
         - @group.group_users.each do |group_user|
           = group_user.user.name
-    .Chat_top_btn
-      Edit
+    = link_to edit_group_path(@group) do
+      .Chat_top_btn
+        Edit 
+     
   .Chat_main
     = render @messages
   .Chat_bottom
