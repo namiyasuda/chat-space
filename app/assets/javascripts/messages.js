@@ -3,10 +3,10 @@ $(function(){
     var addImage = (messages.image !== null) ? `<img class = "lower-message__image", src="${messages.image}" alt="Template 1599665  480">` : ''  
 
     var html = 
-    `<div class="message">
+    `<div class="message" data-id=${messages.id}>
     <div class="upper-message">
     <div class="upper-message__user-name">
-    ${messages.name}
+    ${messages.user_name}
     </div>
     <div class="upper-message__date">
     ${messages.created_at}
@@ -47,4 +47,30 @@ $(function(){
      alert('エラー');
   })
 });
+var interval = setInterval(function() {
+  if (location.href.match('/groups/group_id/messages/')){
+    $('.Chat_main').animate({scrollTop: $('.Chat_main')[0].scrollHeight}, 'fast');
+    var last_message_id = $('.message').last().data('id');
+  
+  $.ajax({
+    url: 'api/messages',
+    type: 'GET',
+    dataType: 'json',
+    data: {id: last_message_id}
+    })
+  
+  .done(function(messages) {
+    messages.forEach(function(message){
+    var insertHTML = buildHTML(message);
+    $('.message').append(insertHTML);
+    $('.Chat_main').animate({scrollTop: $('.Chat_main')[0].scrollHeight}, 'fast');
+    })
+  })
+  .fail(function() {
+      arert('error');
+  });
+} else {
+      clearInterval(interval);
+  }
+  },5000);
 })
