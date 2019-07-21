@@ -23,7 +23,7 @@ $(function() {
 
   function appendUser(id,name) {
     var html =
-    `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
+    `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-1'>
     <input name='group[user_ids][]' type='hidden' value='${ id }'>
     <p class='chat-group-user__name'>${ name }</p>
     <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
@@ -62,8 +62,11 @@ $(function() {
     $("#user-search-result").empty();
   });
   $(document).on("click",'.user-search-remove', function () {
-    $("#chat-group-users").empty();
+    $("#chat-group-user-1").empty();
+  });
+
+  $(document).on("click",'.user-search-remove', function () {
+    $("#chat-group-user-22").empty();
   });
   
-
 })
