@@ -1,9 +1,8 @@
 $(function(){
   function buildHTML(messages){
-    var addImage = (messages.image !== null) ? `<img class = "lower-message__image", src="${messages.image}" alt="Template 1599665  480">` : ''  
-
+    var addImage = (messages.image !== null) ? `<img class = "lower-message__image", src="${messages.image}">` : ''  
     var html = 
-    `<div class="message" data-id=${messages.id}>
+    `<div class="message" data-message-id=${messages.id}>
     <div class="upper-message">
     <div class="upper-message__user-name">
     ${messages.user_name}
@@ -47,30 +46,32 @@ $(function(){
      alert('エラー');
   })
 });
-var interval = setInterval(function() {
-  if (location.href.match('/groups/group_id/messages/')){
-    $('.Chat_main').animate({scrollTop: $('.Chat_main')[0].scrollHeight}, 'fast');
-    var last_message_id = $('.message').last().data('id');
-  
+var reloadMessages = function () {
+  if (window.location.href.match(/\/groups\/\d+\/messages/)){
+    var last_message_id = $('.message:last').data('message-id');
+  console.log(last_message_id) 
   $.ajax({
     url: 'api/messages',
     type: 'GET',
     dataType: 'json',
-    data: {id: last_message_id}
+    data:  {last_id: last_message_id}
     })
   
   .done(function(messages) {
+    var insertHTML = '';
     messages.forEach(function(message){
-    var insertHTML = buildHTML(message);
+    insertHTML = buildHTML(message);
     $('.message').append(insertHTML);
+  })
     $('.Chat_main').animate({scrollTop: $('.Chat_main')[0].scrollHeight}, 'fast');
     })
-  })
+
   .fail(function() {
-      arert('error');
+      console.log('error');
   });
-} else {
-      clearInterval(interval);
-  }
-  },5000);
-})
+} 
+};
+
+setInterval(reloadMessages, 5000);
+
+});
