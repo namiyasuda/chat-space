@@ -14,7 +14,7 @@ module ChatSpace
       g.helper true
       g.test_framework false
     end 
-    config.time_zone = 'Tokyo'  
+    config.time_zone = 'Tokyo'  #表記を日本時間にする
     config.i18n.default_locale = :ja
   end
 end
